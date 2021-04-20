@@ -52,7 +52,7 @@ public class GroupDemo {
         }
 
         {
-            Map<Long,List<UserDO>> map = list.stream().filter(userDO -> { return userDO != null && userDO.getId() != null;})
+            Map<Long,List<UserDO>> map = list.stream().filter(userDO ->  userDO != null && userDO.getId() != null)
                     .collect(Collectors.groupingBy(UserDO::getId));
 
             map.forEach((id,userDos)->{
