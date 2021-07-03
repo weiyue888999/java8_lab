@@ -47,5 +47,7 @@ public class DistinctSum {
                     return oldVal;
                 })).values().stream().collect(Collectors.toList());
         System.out.println(ll);
+
+        list.stream().collect(Collectors.toMap(OfferOrder::getOfferId, Function.identity()));
     }
 }
