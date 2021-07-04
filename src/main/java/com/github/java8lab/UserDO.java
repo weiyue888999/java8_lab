@@ -5,6 +5,10 @@ public class UserDO {
     private Long id;
     private String name;
 
+    public UserDO() {
+        System.out.println("UserDO new");
+    }
+
     public UserDO(Long id, String name) {
         this.id = id;
         this.name = name;

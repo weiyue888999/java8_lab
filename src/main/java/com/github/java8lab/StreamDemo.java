@@ -9,11 +9,9 @@ public class StreamDemo {
 
         List<String> list = Arrays.asList("1","2");
 
-        list.stream().forEach(x -> System.out.println(x));
+        list.stream().forEach(System.out::println);
 
-        list.forEach(x -> System.out.println(x));
-
-        list.parallelStream().forEach(y -> System.out.println(y));
+        list.stream().forEachOrdered(System.out::println);
 
     }
 }

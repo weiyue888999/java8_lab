@@ -46,18 +46,22 @@ public class FilterDemo {
             return userDO.getName().equals("guangyue");
         };
 
-        Stream<UserDO> stream = list.stream();
-        System.out.println(stream);
-        System.out.println(System.identityHashCode(stream));
-        System.out.println("......");
+        //可传入简单表达式
+        list.stream().filter(userDO -> userDO.getName().equals("weiguangyue"));
+
+        //可传入完整的带有return的方法
+        list.stream().filter((userDO) -> {return userDO.getName().equals("wei");});
+
+        //因为断言是一个参数，所以不需要括号
 
 
-        Stream<UserDO> stream1 = stream.filter(p1);
-        System.out.println(stream1);
-        System.out.println(System.identityHashCode(stream1));
+        List<Object> ll = list.stream().map(userDO -> new Object()).collect(Collectors.toList());
+        System.out.println(ll);
 
+        list.removeIf(userDO -> userDO.getName().equals("wei"));
 
-        List<UserDO> resultList = list.stream().filter(userDO -> userDO.getId().equals(1L)).collect(Collectors.toList());
-        resultList.forEach(x -> System.out.println(x));
+        Stream<Integer> numbers = Stream.of(1, 2, 3);
+        numbers.forEach(System.out::println);
+
     }
 }
